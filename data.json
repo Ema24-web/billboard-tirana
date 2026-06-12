@@ -1,0 +1,27 @@
+{
+  "events": [
+    {"title": "Festival i Muzikës", "date": "2026-07-01", "location": "Sheshi Skënderbej"},
+    {"title": "Ekspozitë Arti", "date": "2026-07-15", "location": "Galeria Kombëtare"},
+    {"title": "Teatri Kombëtar", "date": "2026-07-20", "location": "Teatri Kombëtar"}
+  ],
+  "tourism": [
+    {"name": "Sheshi Skënderbej", "description": "Sheshi kryesor i Tiranës"},
+    {"name": "Kalaja e Tiranës", "description": "Kalaja historike e qytetit"},
+    {"name": "Liqeni Artificial", "description": "Park i bukur për shëtitje"}
+  ],
+  "restaurants": [
+    {"name": "Era Restaurant", "type": "Shqipëtare", "location": "Blloku"},
+    {"name": "Juvenilja", "type": "Tradicionale", "location": "Qendra"},
+    {"name": "Green House", "type": "Ndërkombëtare", "location": "Blloku"}
+  ],
+  "emergency": [
+    {"service": "Policia", "number": "129"},
+    {"service": "Ambulanca", "number": "127"},
+    {"service": "Zjarrfikëset", "number": "128"}
+  ],
+  "embassies": [
+    {"country": "SHBA", "address": "Rruga Elbasanit", "phone": "+355 4 2247285"},
+    {"country": "Itali", "address": "Rruga Skënderbej", "phone": "+355 4 2274880"},
+    {"country": "Gjermani", "address": "Rruga Skënderbej 8", "phone": "+355 4 2274505"}
+  ]
+}

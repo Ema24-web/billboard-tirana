@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billboard Interaktiv i Tiranës</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        header {
+            background-color: #E41E20;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 28px;
+            color: #000000;
+        }
+
+        header p {
+            color: #000000;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        .container {
+            display: flex;
+            min-height: calc(100vh - 120px);
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #1a0000;
+            padding: 20px;
+        }
+
+        .sidebar h3 {
+            color: #E41E20;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .sidebar a {
+            display: block;
+            background-color: #E41E20;
+            color: #000000;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #ff4444;
+            color: #ffffff;
+        }
+
+        .content {
+            flex: 1;
+            padding: 30px;
+            background-color: #0a0000;
+        }
+
+        .content h2 {
+            color: #E41E20;
+            margin-bottom: 20px;
+            font-size: 22px;
+            border-bottom: 2px solid #E41E20;
+            padding-bottom: 10px;
+        }
+
+        .card {
+            background-color: #1a0000;
+            border-left: 4px solid #E41E20;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .card h3 {
+            color: #E41E20;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .weather-box {
+            background-color: #E41E20;
+            color: #000000;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #E41E20;
+            color: #000000;
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+        }
+
+        .welcome {
+            text-align: center;
+            padding: 50px;
+            color: #666666;
+        }
+
+        .welcome h2 {
+            color: #E41E20;
+            font-size: 30px;
+            border: none;
+        }
+
+        .welcome p {
+            margin-top: 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🦅 BILLBOARD INTERAKTIV I TIRANËS 🦅</h1>
+        <p>— Mirë se vini në Tiranë —</p>
+    </header>
+
+    <div class="container">
+        <div class="sidebar">
+            <h3>📋 KATEGORITË</h3>
+            <a href="/events">🎭 Evente Kulturore</a>
+            <a href="/tourism">🏛️ Destinacione Turistike</a>
+            <a href="/restaurants">🍕 Restorante dhe Bare</a>
+            <a href="/emergency">🚨 Shërbime Urgjence</a>
+            <a href="/embassies">🏳️ Ambasadat</a>
+            <a href="/weather">🌤️ Moti i Tiranës</a>
+        </div>
+
+        <div class="content">
+            {% if category %}
+                <h2>{{ title }}</h2>
+                {% for item in data %}
+                <div class="card">
+                    {% if category == 'events' %}
+                        <h3>📌 {{ item.title }}</h3>
+                        <p>📅 Data: {{ item.date }}</p>
+                        <p>📍 Vendi: {{ item.location }}</p>
+                    {% elif category == 'tourism' %}
+                        <h3>📌 {{ item.name }}</h3>
+                        <p>📝 {{ item.description }}</p>
+                    {% elif category == 'restaurants' %}
+                        <h3>📌 {{ item.name }}</h3>
+                        <p>🍴 Lloji: {{ item.type }}</p>
+                        <p>📍 Vendi: {{ item.location }}</p>
+                    {% elif category == 'emergency' %}
+                        <h3>🔴 {{ item.service }}</h3>
+                        <p>📞 Numri: {{ item.number }}</p>
+                    {% elif category == 'embassies' %}
+                        <h3>🌍 {{ item.country }}</h3>
+                        <p>📍 Adresa: {{ item.address }}</p>
+                        <p>📞 Telefon: {{ item.phone }}</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            {% elif category == 'weather' %}
+                <h2>🌤️ Moti i Tiranës</h2>
+                <div class="weather-box">{{ data }}</div>
+            {% else %}
+                <div class="welcome">
+                    <h2>🦅 Mirë se vini!</h2>
+                    <p>Zgjidhni një kategori nga menuja e majtë</p>
+                    <p>për të parë informacionin e dëshiruar.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <footer>
+        🦅 Bashkia e Tiranës — Informatikë Biznesi 2026 🦅
+    </footer>
+
+</body>
+</html>
